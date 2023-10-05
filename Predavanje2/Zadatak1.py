@@ -1,0 +1,2 @@
+import derivacija as d
+
