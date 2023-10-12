@@ -25,12 +25,12 @@ D = 0.5
 
 e = 1e-6 #epsilon
 
-print(nt.met_bisekcija(fun, 1.0, 4.0, e, y1_0, A, B, y2_0, C, D), nt.met_NR(fun, deriv_fun, 1.6, e, y1_0, A, B, y2_0, C, D),
+print(nt.met_bisekcija(fun, 0.0, 2.8, e, y1_0, A, B, y2_0, C, D), nt.met_NR(fun, deriv_fun, 1.6, e, y1_0, A, B, y2_0, C, D),
       nt.met_sekanta(fun, 1.6, e, y1_0, A, B, y2_0, C, D))
 
-'''x = [i for i in np.arange(0.0, 5.0, 0.01)]
+x = [i for i in np.arange(0.0, 5.0, 0.01)]
 y = [fun(i, y1_0, A, B, y2_0, C, D) for i in x]
 
 plt.plot(x, y)
 plt.grid(True)
-plt.show()'''
+plt.show()

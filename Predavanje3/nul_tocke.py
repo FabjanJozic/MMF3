@@ -19,7 +19,7 @@ def met_bisekcija(function, a, b, epsilon, A, B, C, D, E, F):
         else:
             break
         k +=1
-    return c
+    return c, k
 
 def met_NR(function, deriv_function, x, epsilon, A, B, C, D, E, F):
     '''Newton-Raphsonova metoda za trazenje nul-tocke funkcije u okolini tocke x uz poznavanje derivacije funkcije, uz ogranicenje epsilon.'''
@@ -27,7 +27,7 @@ def met_NR(function, deriv_function, x, epsilon, A, B, C, D, E, F):
     while abs(function(x, A, B ,C, D, E, F)/deriv_function(x, A, B, C, D, E, F)) > epsilon and k <= 500:
         x -= function(x, A, B, C, D, E, F)/deriv_function(x, A, B, C, D, E, F)
         k += 1
-    return x
+    return x, k
     
 def met_sekanta(function, x, epsilon, A, B, C, D, E, F):
     '''Metode sekante za trazenje nul-tocke funkcije u okolini tocke x uz nepoznatu derivaciju funkcije, uz ogranicenje epsilon.'''
@@ -37,4 +37,4 @@ def met_sekanta(function, x, epsilon, A, B, C, D, E, F):
     while abs(function(x, A, B, C, D, E, F)/deriv_function(function, x, epsilon, A, B, C, D, E, F)) > epsilon and k <= 500:
         x -= function(x, A, B, C, D, E, F)/deriv_function(function, x, epsilon, A, B, C, D, E, F)
         k +=1
-    return x
+    return x, k
