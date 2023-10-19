@@ -16,4 +16,7 @@ upp = np.array([6, 5, 4, 3, 2, 1])
 mid = np.array([2, 4, 6, 8, 6, 4, 2])
 low = np.array([1, 2, 3, 4, 5, 6])
 
-print(li.Thomas(low, mid, upp, B)*14)
+X = li.Thomas(low, mid, upp, B)
+
+for i in X:
+    print(i*14)
