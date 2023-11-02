@@ -2,7 +2,7 @@ import sys
 
 
 
-def L_i(X, Y, x, m):
+def lagrange(X, Y, x, m):
     '''Langrangeova interpolacija polinoma.'''
     rez = 0.0
     for i in range(0, m + 1):
