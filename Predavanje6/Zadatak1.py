@@ -42,7 +42,7 @@ for j in np.arange(a, b + c, c):
     x.append(j)
     yL.append(inter.lagrange(r, V, j, len(r) - 1))
     yP.append(inter.polint(r, V, len(r), j)[0])
-    dyP.append(inter.polint(r, V, len(r), j)[1])
+    dyP.append(abs(inter.polint(r, V, len(r), j)[1]))
 
 comb = list(zip(r, yL, yP, dyP))
 with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-H)_inter.txt','w') as write2:
@@ -51,15 +51,19 @@ with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-
         write2.write(linija)
     write2.close()
 
-
-
-
-'''fig = plt.figure(figsize=(13,6), dpi=90)
-axes = fig.add_axes([0.15, 0.15, 0.75, 0.70])
-axes.scatter(x, yL, color='red')
-axes.set_xlim(a, b)
-axes.grid(lw=0.5)
-plt.show()'''
+fig = plt.figure(figsize=(10,5), dpi=120)
+axes = fig.add_axes([0.15, 0.15, 0.80, 0.75])
+plt.rcParams.update({'font.size': 8})           #type: ignore
+axes.scatter(r, V, c='white', edgecolor='black', s=60)
+axes.scatter(x, yL, c='red', edgecolor='red', s=35)
+axes.scatter(x, yP, c='blue', edgecolor='blue', s=10)
+axes.errorbar(x, yP, yerr=dyP, capsize=3, color='blue', linewidth=0.5, label='Neville')
+axes.set_xlabel('$r$ / $\AA$')
+axes.set_ylabel('$V$ / $K$')
+axes.set_xlim(1., 10.)
+axes.set_ylim(-10., 10.)
+axes.legend(['$(r_{i}, V_{i})$', 'Lagrange', 'Neville'], loc='best')
+plt.show()
 
         
 
