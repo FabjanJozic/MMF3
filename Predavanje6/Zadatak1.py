@@ -36,11 +36,22 @@ b = 9.81
 c = (b - a)/70
 x = []
 yL = []
+yP = []
+dyP = []
 for j in np.arange(a, b + c, c):
     x.append(j)
     yL.append(inter.lagrange(r, V, j, len(r) - 1))
-    with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-H)_inter.txt','w') as write2:
-        
+    yP.append(inter.polint(r, V, len(r), j)[0])
+    dyP.append(inter.polint(r, V, len(r), j)[1])
+
+comb = list(zip(r, yL, yP, dyP))
+with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-H)_inter.txt','w') as write2:
+    for val1, val2, val3, val4 in comb:
+        linija = f"{val1}\t{val2}\t{val3}\t{val4}\n"
+        write2.write(linija)
+    write2.close()
+
+
 
 
 '''fig = plt.figure(figsize=(13,6), dpi=90)
