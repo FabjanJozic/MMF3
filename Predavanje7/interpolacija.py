@@ -2,7 +2,7 @@ import sys
 
 
 
-def lagrange(X, Y, x, m):
+def lagrange(X, Y, m, x):
     '''Langrangeova interpolacija polinoma.'''
     rez = 0.0
     for i in range(0, m + 1):
@@ -18,16 +18,16 @@ def polint(X, Y, NP, x):
 	# polint radi polinomnu interpolaciju na temelju Nevilleva algoritma
     # ulaz: NP parova podataka (X,Y) i argument x
     # izlaz: vrijednost polinoma yN u tocki x i greska procjene dy
-	ns=1
-	C=[0]
-	D=[0]
-	Xa=[0]
-	Ya=[0]
+	ns = 1
+	C = [0]
+	D = [0]
+	Xa = [0]
+	Ya = [0]
 	for i in range(NP):
 		Xa.append(X[i])
 		Ya.append(Y[i])
 	# trazimo najblizeg susjeda (ns) od x
-	mdx=abs(x - Xa[1]) # udaljenost tocke x od 1. cvora
+	mdx = abs(x - Xa[1]) # udaljenost tocke x od 1. cvora
 	for i in range(1, NP + 1):
 		dx = abs(x - Xa[i])
 		if (dx < mdx): # udaljenost od ostalih cvorova
