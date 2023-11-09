@@ -40,8 +40,8 @@ def polint(X, Y, NP, x):
 	ns = ns - 1
 	for m in range(1, NP):         # za svaki stupac
 		for i in range(1, NP - m + 1): # za svaki redak
-			bCx = xa[i] - x         # brojnik u C: razlika x-eva
-			bDx = xa[i + m] - x       # brojnik u D: razlika x-eva
+			bCx = Xa[i] - x         # brojnik u C: razlika x-eva
+			bDx = Xa[i + m] - x       # brojnik u D: razlika x-eva
 			CD = C[i + 1] - D[i]       # razlika iz prethodnog stupca
 			# stop ako postoje zaokruzeno-isti xi
 			odnos = bCx - bDx
