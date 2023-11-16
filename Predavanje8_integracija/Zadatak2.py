@@ -16,5 +16,6 @@ v = [1e3, 5e3, 1e4, 5e4]
 
 print("\n%22s %22s %22s %22s" %('broj koraka', 'maksimalna brzina','trapezoidna formula', 'Simpsonova metoda'))
 for i in range(len(v)):
-    print("\n%22.1e %22.1e %22.17lf %22.17lf" %(v[i]/h, v[i], cal.int_trapezoidal(p, 0., v[i], v[i]/h), cal.int_Simpson(p, 0., v[i], v[i]/h)))
+    print("\n%22.1e %22.1e %22.17lf %22.17lf" %(v[i]/h, v[i], cal.int_trapezoidal(p, 0., v[i], v[i]/h),
+                                                cal.int_Simpson(p, 0., v[i], v[i]/h)))
 print("\n")
