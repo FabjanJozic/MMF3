@@ -1,8 +1,7 @@
-import numpy as np
 import math
 
 def exp_rek(x, epsilon): #b
-    "Vrijednost eksponencijalne funkcije negativnog eksponenta dobivena rayvojem u red."
+    "Vrijednost eksponencijalne funkcije negativnog eksponenta dobivena rekurzivnom formulom."
     result = 1.0
     e = epsilon
     k = 1
@@ -14,7 +13,7 @@ def exp_rek(x, epsilon): #b
     return result, k
 
 def exp_red(x, epsilon): #a
-    "Vrijednost eksponencijalne funkcije negativnog eksponenta dobivena rekurzivnom formulom."
+    "Vrijednost eksponencijalne funkcije negativnog eksponenta dobivena razvojem u red."
     result = 1.0
     e = epsilon
     k = 1
