@@ -1,5 +1,3 @@
-import numpy as np
-
 
 def Thomas(lower_diag, main_diag, upper_diag, solutions):
     '''Thomasova metoda za pronalazenje rjesenja linearnog sustava jednadzbi iz trodijagonalne matrice.'''

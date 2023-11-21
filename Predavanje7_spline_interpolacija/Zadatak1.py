@@ -45,7 +45,7 @@ yP_S = []
 for i in range(len(x)):
     yP_S.append(yP[i] - yS[i])
 
-with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje7\\V(H-H)_inter.txt','w') as write:
+with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje7_spline_interpolacija\\V(H-H)_inter.txt','w') as write:
     write.write("\n%18s %18s %18s %18s %18s %18s" %('r = x', 'yL', 'yP', 'dyP', 'yS', 'yP - yS'))
     write.write('\n')
     for u in range(len(x)):

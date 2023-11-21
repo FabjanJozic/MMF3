@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 
-with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-H).txt','r') as read1:
+with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6_Nevilleova_interpolacija\\V(H-H).txt','r') as read1:
     linija1 = read1.readlines()
     mod_linija1 = []
     for i in range(2, len(linija1)):
@@ -15,10 +15,10 @@ with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-
         mod_linija1.append(mod_i)
     read1.close()
 
-with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-H)_AK.txt','w') as write1:
+with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6_Nevilleova_interpolacija\\V(H-H)_AK.txt','w') as write1:
     write1.writelines(mod_linija1)
 
-with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-H)_AK.txt','r') as read2:
+with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6_Nevilleova_interpolacija\\V(H-H)_AK.txt','r') as read2:
     linija2 = read2.readlines()
     r = []
     V = []

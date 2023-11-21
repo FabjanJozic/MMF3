@@ -23,14 +23,6 @@ def deriv_fun(t):
     return -A*B*np.sin(B*t)-C*D*np.exp(D*t)
 
 
-
-y1_0 = 5.0
-y2_0 = 0.325
-A = 1.0
-B = 3.0
-C = 2.0
-D = 0.5
-
 e = 1e-6 #epsilon
 
 print(nt.met_bisekcija(fun, 0.0, 2.8, e), nt.met_NR(fun, deriv_fun, 1.6, e),

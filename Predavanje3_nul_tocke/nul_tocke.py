@@ -1,8 +1,4 @@
 
-
-#Vrijednosti A, B, C, D, E i F su konstante. 
-
-
 def met_bisekcija(function, a, b, epsilon):
     '''Metoda bisekcije ili raspolavljanja intervala [a,b] za trazenje nul-tocke funkcije u intervalu [a,b], uz ogranicenje epsilon.'''
     c =(a+b)/2
@@ -12,7 +8,7 @@ def met_bisekcija(function, a, b, epsilon):
             a = a
             b = c
             c = (a+b)/2
-        if function(a)*function(c) > 0:
+        elif function(a)*function(c) > 0:
             a = c
             b = b
             c = (a+b)/2
