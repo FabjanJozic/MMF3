@@ -5,7 +5,7 @@ from scipy.interpolate import CubicSpline
 
 
 
-with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6\\V(H-H)_AK.txt','r') as read:
+with open('C:\\Users\\Fabo\\OneDrive\\Desktop\\programi\\MMF3\\Predavanje6_Nevilleova_interpolacija\\V(H-H)_AK.txt','r') as read:
     linija = read.readlines()
     r = []
     V = []
