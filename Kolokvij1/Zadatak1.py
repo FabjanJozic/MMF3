@@ -39,4 +39,4 @@ b = [1, 1, 1, 1, 1] #glavna dijagonala
 c = [4, 3, 2, 1] #dornja dijagonala
 fun = [f(i) for i in x] #vrijednosti funkcije
 
-print(Thomas(a, b, c, fun))
+print(Thomas(a, b, c, fun_der))
