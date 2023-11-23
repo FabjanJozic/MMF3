@@ -4,7 +4,7 @@ def met_bisekcija(function, a, b, epsilon):
     '''Metoda bisekcije ili raspolavljanja intervala [a,b] za trazenje nul-tocke funkcije u intervalu [a,b], uz ogranicenje epsilon.'''
     c =(a+b)/2
     k = 1
-    while abs(c) > epsilon and k <= 700:
+    while abs(c) > epsilon and k <= 1000:
         if function(a)*function(c) < 0:
             a = a
             b = c
@@ -21,7 +21,7 @@ def met_bisekcija(function, a, b, epsilon):
 def met_NR(function, deriv_function, x, epsilon):
     '''Newton-Raphsonova metoda za trazenje nul-tocke funkcije u okolini tocke x uz poznavanje derivacije funkcije, uz ogranicenje epsilon.'''
     k = 1
-    while abs(function(x)/deriv_function(x)) > epsilon and k <= 700:
+    while abs(function(x)/deriv_function(x)) > epsilon and k <= 1000:
         x -= function(x)/deriv_function(x)
         k += 1
     return x, k
@@ -37,13 +37,13 @@ def f(v): #umanjena funkcija raspodjele
     return ((K/np.pi)**(3/2))*4*np.pi*(v**2)*np.exp(-K*(v**2)) - f_MB
 
 def df(v): #analiticka derivacija umanjene funkcije raspodjele
-    return ((K/np.pi)**(3/2))*8*np.pi*v**np.exp(-K*(v**2))*(1 + K*(v**2))
+    return ((K/np.pi)**(3/2))*8*np.pi*v*np.exp(-K*(v**2))*(1 - K*(v**2))
 
-a = [0, 8e6] #lijeve tocke intervala
-b = [900, 1e7] #desne tocke intervala
+a = [0, 500] #lijeve tocke intervala
+b = [700, 1000] #desne tocke intervala
 c = [] #potencijalne nul-tocke
 for u in range(len(a)):
     c.append((a[u] + b[u])/2)
 
 print(met_bisekcija(f, a[0], b[0], e), met_bisekcija(f, a[1], b[1], e))
-print(met_NR(f, df, c[0], e), met_NR(f, df, c[1], e))
+print(met_NR(f, df, c[0], e), met_NR(f, df, 670, e))
