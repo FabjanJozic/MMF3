@@ -11,13 +11,11 @@ def Euler(t0, x0, v0, function, N, t):
     X = [x0] #pocetni polozaj
     V = [v0] #pocetna brzina
     A = [function(t0, x0, v0)] #pocetna akceleracija
-    i = 1
     while T[-1] <= t:
-        T.append(i*h)
-        V.append(V[-1]+A[-1]*h)
+        T.append(T[-1]+h)
         X.append(X[-1]+V[-1]*h)
+        V.append(V[-1]+A[-1]*h)
         A.append(function(T[-1], X[-1], V[-1]))
-        i += 1
     return T, X, V, A
 
 def pred_kor(t0, x0, v0, function, N, t):
@@ -32,7 +30,6 @@ def pred_kor(t0, x0, v0, function, N, t):
     X = [x0] #pocetni polozaj
     V = [v0] #pocetna brzina
     A = [function(t0, x0, v0)] #pocetna akceleracija
-    i = 1
     while T[-1] <= t:
         t = T[-1]
         x = X[-1]
@@ -41,11 +38,10 @@ def pred_kor(t0, x0, v0, function, N, t):
         k1x = v
         k2v = function(t+h, x+h*k1x, v+h*k1v)
         k2x = v+h*k1v
-        T.append(i*h)
+        T.append(T[-1]+h)
         X.append(x+(k1x+k2x)*h/2)
         V.append(v+(k1v+k2v)*h/2)
         A.append(function(T[-1], X[-1], V[-1]))
-        i += 1
     return T, X, V, A
 
 def RK4(t0, x0, v0, function, N, t):
@@ -60,7 +56,6 @@ def RK4(t0, x0, v0, function, N, t):
     X = [x0] #pocetni polozaj
     V = [v0] #pocetna brzina
     A = [function(t0, x0, v0)] #pocetna akceleracija
-    i = 1
     while T[-1] <= t:
         t = T[-1]
         x = X[-1]
@@ -73,9 +68,8 @@ def RK4(t0, x0, v0, function, N, t):
         k3x = v+h/2*k2v
         k4v = function(t+h, x+h*k3x, v+h*k3v)
         k4x = v+h*k3v
-        T.append(i*h)
-        X.append(x+(k1x+k2x+k3x+k4x)*h/6)
-        V.append(v+(k1v+k2v+k3v+k4v)*h/6)
+        T.append(t+h)
+        X.append(x+(k1x+2*k2x+2*k3x+k4x)*h/6)
+        V.append(v+(k1v+2*k2v+2*k3v+k4v)*h/6)
         A.append(function(T[-1], X[-1], V[-1]))
-        i += 1
     return T, X, V, A
