@@ -42,23 +42,23 @@ axes.set_xlim(t1, t2)
 axes.legend(loc='best')
 plt.show()'''
 
-fig = plt.figure(figsize=(11,5), dpi=110)
+'''fig = plt.figure(figsize=(11,5), dpi=110)
 axes = fig.add_axes([0.15, 0.15, 0.75, 0.70])
 plt.rcParams.update({'font.size': 9})           #type: ignore
-'''axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 100000, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 100000, t2)[1],
-          color='blue', lw=1.1, label='Euler $N = 10000$')
+axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 100000, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 100000, t2)[1],
+          color='blue', lw=1.5, label='Euler $N = 100000$')
 axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 10000, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 10000, t2)[1],
-          color='purple', lw=1.1, label='Euler $N/10 = 1000$')'''
+          color='purple', lw=1.5, label='Euler $N/10 = 10000$')
+axes.plot(dj.RK4(0.0 , y0_r, v0, numericko, 100000, t2)[0], dj.RK4(0.0 , y0_r, v0, numericko, 100000, t2)[1],
+          color='orange', lw=1.5, label='RK4 $N = 100000$')
 axes.plot(dj.RK4(0.0 , y0_r, v0, numericko, 10000, t2)[0], dj.RK4(0.0 , y0_r, v0, numericko, 10000, t2)[1],
-          color='orange', lw=1.1, label='RK4 $N = 10000$')
-axes.plot(dj.RK4(0.0 , y0_r, v0, numericko, 1000, t2)[0], dj.RK4(0.0 , y0_r, v0, numericko, 1000, t2)[1],
-          color='red', lw=1.1, label='RK4 $N/10 = 1000$')
+          color='red', lw=1.5, label='RK4 $N/10 = 10000$')
 axes.grid(lw=0.5)
 #axes.set_xlim(t1, t2)
 axes.legend(loc='best')
-plt.show()
+plt.show()'''
 
-'''t = []
+t = []
 theta_4 = []
 theta_8 = []
 theta_16 = []
@@ -73,18 +73,18 @@ for i in np.arange(0.0, 7*T+1e-5, 1e-5):
 fig = plt.figure(figsize=(11,5), dpi=110)
 axes = fig.add_axes([0.15, 0.15, 0.75, 0.70])
 plt.rcParams.update({'font.size': 9})           #type: ignore
-axes.plot(dj.RK4(0.0 , y0_r, v0, numericko, 1000, 7*T)[0], dj.RK4(0.0 , y0_r, v0, numericko, 1000, 7*T)[1],
-          color='green', lw=1.1, label='RK4, $y_{0} = 4^{o}$', linestyle='--')
-axes.plot(dj.RK4(0.0 , y0_r*2, v0, numericko, 1000, 7*T)[0], dj.RK4(0.0 , y0_r*2, v0, numericko, 1000, 7*T)[1],
-          color='red', lw=1.1, label='RK4, $y_{0} = 8^{o}$', linestyle='--')
-axes.plot(dj.RK4(0.0 , y0_r*4, v0, numericko, 1000, 7*T)[0], dj.RK4(0.0 , y0_r*4, v0, numericko, 1000, 7*T)[1],
-          color='yellow', lw=1.1, label='RK4, $y_{0} = 16^{o}$', linestyle='--')
-axes.plot(dj.RK4(0.0 , y0_r*8, v0, numericko, 1000, 7*T)[0], dj.RK4(0.0 , y0_r*8, v0, numericko, 1000, 7*T)[1],
-          color='blue', lw=1.1, label='RK4, $y_{0} = 32^{o}$', linestyle='--')
-axes.plot(t, theta_4, color='green', lw=1.2, label='$y_{a}, y_{0} = 4^{o}$')
-axes.plot(t, theta_8, color='red', lw=1.2, label='$y_{a}, y_{0} = 8^{o}$')
-axes.plot(t, theta_16, color='yellow', lw=1.2, label='$y_{a}, y_{0} = 16^{o}$')
-axes.plot(t, theta_32, color='blue', lw=1.2, label='$y_{a}, y_{0} = 32^{o}$')
+axes.plot(dj.RK4(0.0 , y0_r, v0, numericko, 1e5, 7*T)[0], dj.RK4(0.0 , y0_r, v0, numericko, 1e5, 7*T)[1],
+          color='green', lw=1.3, label='RK4, $y_{0} = 4^{o}$', linestyle='--')
+axes.plot(dj.RK4(0.0 , y0_r*2, v0, numericko, 1e5, 7*T)[0], dj.RK4(0.0 , y0_r*2, v0, numericko, 1e5, 7*T)[1],
+          color='red', lw=1.3, label='RK4, $y_{0} = 8^{o}$', linestyle='--')
+axes.plot(dj.RK4(0.0 , y0_r*4, v0, numericko, 1e5, 7*T)[0], dj.RK4(0.0 , y0_r*4, v0, numericko, 1e5, 7*T)[1],
+          color='yellow', lw=1.3, label='RK4, $y_{0} = 16^{o}$', linestyle='--')
+axes.plot(dj.RK4(0.0 , y0_r*8, v0, numericko, 1e5, 7*T)[0], dj.RK4(0.0 , y0_r*8, v0, numericko, 1e5, 7*T)[1],
+          color='blue', lw=1.3, label='RK4, $y_{0} = 32^{o}$', linestyle='--')
+axes.plot(t, theta_4, color='green', lw=1.3, label='$y_{a}, y_{0} = 4^{o}$')
+axes.plot(t, theta_8, color='red', lw=1.3, label='$y_{a}, y_{0} = 8^{o}$')
+axes.plot(t, theta_16, color='yellow', lw=1.3, label='$y_{a}, y_{0} = 16^{o}$')
+axes.plot(t, theta_32, color='blue', lw=1.3, label='$y_{a}, y_{0} = 32^{o}$')
 axes.grid(lw=0.5)
 axes.legend(loc='best')
-plt.show()'''
+plt.show()

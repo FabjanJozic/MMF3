@@ -1,36 +1,40 @@
 
-def Euler(t0, x0, v0, function, N, t):
+def Euler(t0, x0, v0, function, N, tN):
     '''
     Eulerova metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi prvog reda.
-    y0 --- pocetni polozaj
-    t0 --- pocetni trenutak
-    N  --- broj iteracija
+    \nt0 --- pocetni trenutak
+    \nx0 --- pocetni polozaj
+    \nv0 --- pocetna brzina
+    \nN  --- broj iteracija
+    \ntN --- krajnji trenutak
     '''
-    h = (t-t0)/N #vremenski korak
+    h = (tN-t0)/N #vremenski korak
     T = [t0] #pocetni trenutak
     X = [x0] #pocetni polozaj
     V = [v0] #pocetna brzina
     A = [function(t0, x0, v0)] #pocetna akceleracija
-    while T[-1] <= t:
+    while T[-1] <= tN:
         T.append(T[-1]+h)
         X.append(X[-1]+V[-1]*h)
         V.append(V[-1]+A[-1]*h)
         A.append(function(T[-1], X[-1], V[-1]))
     return T, X, V, A
 
-def pred_kor(t0, x0, v0, function, N, t):
+def pred_kor(t0, x0, v0, function, N, tN):
     '''
     Prediktor-korektor metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi prvog reda.
-    y0 --- pocetni polozaj
-    t0 --- pocetni trenutak
-    N  --- broj iteracija
+    \nt0 --- pocetni trenutak
+    \nx0 --- pocetni polozaj
+    \nv0 --- pocetna brzina
+    \nN  --- broj iteracija
+    \ntN --- krajnji trenutak
     '''
-    h = (t-t0)/N #vremenski korak
+    h = (tN-t0)/N #vremenski korak
     T = [t0] #pocetni trenutak
     X = [x0] #pocetni polozaj
     V = [v0] #pocetna brzina
     A = [function(t0, x0, v0)] #pocetna akceleracija
-    while T[-1] <= t:
+    while T[-1] <= tN:
         t = T[-1]
         x = X[-1]
         v = V[-1]
@@ -44,19 +48,21 @@ def pred_kor(t0, x0, v0, function, N, t):
         A.append(function(T[-1], X[-1], V[-1]))
     return T, X, V, A
 
-def RK4(t0, x0, v0, function, N, t):
+def RK4(t0, x0, v0, function, N, tN):
     '''
-    Runge-Kutta metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi prvog reda.
-    y0 --- pocetni polozaj
-    t0 --- pocetni trenutak
-    N  --- broj iteracija
+    Runge-Kutta 4 metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi prvog reda.
+    \nt0 --- pocetni trenutak
+    \nx0 --- pocetni polozaj
+    \nv0 --- pocetna brzina
+    \nN  --- broj iteracija
+    \ntN --- krajnji trenutak
     '''
-    h = (t-t0)/N #vremenski korak
+    h = (tN-t0)/N #vremenski korak
     T = [t0] #pocetni trenutak
     X = [x0] #pocetni polozaj
     V = [v0] #pocetna brzina
     A = [function(t0, x0, v0)] #pocetna akceleracija
-    while T[-1] <= t:
+    while T[-1] <= tN:
         t = T[-1]
         x = X[-1]
         v = V[-1]
