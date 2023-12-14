@@ -30,12 +30,12 @@ for i in np.arange(t1, t2+1e-5, 1e-5):
 fig = plt.figure(figsize=(11,5), dpi=110)
 axes = fig.add_axes([0.15, 0.15, 0.75, 0.70])
 plt.rcParams.update({'font.size': 9})           #type: ignore
-axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 500, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 500, t2)[1],
-          color='blue', lw=1.1, label='$y_{E,500}(t)$')
 axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 1000, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 1000, t2)[1],
-          color='green', lw=1.1, label='$y_{E,1000}(t)$')
-axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 20000, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 20000, t2)[1],
-          color='orange', lw=1.1, label='$y_{E,20000}(t)$')
+          color='blue', lw=1.1, label='$y_{E,1000}(t)$')
+axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 5000, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 5000, t2)[1],
+          color='green', lw=1.1, label='$y_{E,5000}(t)$')
+axes.plot(dj.Euler(0.0 , y0_r, v0, numericko, 10000, t2)[0], dj.Euler(0.0 , y0_r, v0, numericko, 10000, t2)[1],
+          color='orange', lw=1.1, label='$y_{E,10000}(t)$')
 axes.plot(t, theta, color='purple', lw=1.1, label='$y_{a}(t)$')
 axes.grid(lw=0.5)
 axes.set_xlim(t1, t2)
