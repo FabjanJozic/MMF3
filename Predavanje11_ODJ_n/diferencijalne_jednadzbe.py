@@ -3,7 +3,8 @@ import numpy as np
 
 def Euler(t0, x0, v0, function, N, tN):
     '''
-    Eulerova metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi prvog reda.
+    Eulerova metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi
+    prvog reda.
     \nt0 --- pocetni trenutak
     \nx0 --- pocetni polozaj
     \nv0 --- pocetna brzina
@@ -24,7 +25,8 @@ def Euler(t0, x0, v0, function, N, tN):
 
 def pred_kor(t0, x0, v0, function, N, tN):
     '''
-    Prediktor-korektor metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi prvog reda.
+    Prediktor-korektor metoda za numericko rjesavanje obicnih diferencijalnih
+    jednadzbi prvog reda.
     \nt0 --- pocetni trenutak
     \nx0 --- pocetni polozaj
     \nv0 --- pocetna brzina
@@ -52,7 +54,8 @@ def pred_kor(t0, x0, v0, function, N, tN):
 
 def RK4(t0, x0, v0, function, N, tN):
     '''
-    Runge-Kutta 4 metoda za numericko rjesavanje obicnih diferencijalnih jednadzbi prvog reda.
+    Runge-Kutta 4 metoda za numericko rjesavanje obicnih diferencijalnih
+    jednadzbi prvog reda.
     \nt0 --- pocetni trenutak
     \nx0 --- pocetni polozaj
     \nv0 --- pocetna brzina
@@ -84,8 +87,8 @@ def RK4(t0, x0, v0, function, N, tN):
 
 def Euler_n(X0, function, N, xN):
     '''
-    Eulerova metoda za rjesavanje obicnih diferencijalnih jednadzbi
-    n-tog reda za jednodimenzionalni problem.
+    Eulerova metoda za rjesavanje obicnih diferencijalnih jednadzbi n-tog
+    reda za jednodimenzionalni problem.
     \n
     \nX0 ---------- vektor pocetnih uvjeta
     \nfunction ---- funkcija derivacije n-tog reda
@@ -103,3 +106,22 @@ def Euler_n(X0, function, N, xN):
         X[-1, i+1] = function(X[:-1, i])
     return X
 
+def JUG(t0, X0, V0, acceleration, N, tN):
+    '''Metoda aproksimiranog jednolikog ubrzanog gibanja za rjesavanje obicnih
+    diferencijalnih jednadzbi gibanja u prostoru.'''
+    h = (tN-t0)/N #korak u vremenu
+    X = np.zeros((3, N+1)) #matrica polozaja
+    V = np.zeros((3, N+1)) #matrica brzina
+    A = np.zeros((3, N+1)) #matrica akceleracija
+    T = np.zeros(N+1) #vrijeme
+    X[:, 0] = X0 #pocetni uvjeti polozaja
+    V[:, 0] = V0 #pocetni uvjeti brzina
+    A[:, 0] = acceleration(t0, X0, V0) #pocetni uvjeti akceleracija
+    T[0] = t0 #pocetni uvjet vremena
+    for i in range(len(X)):
+        for j in range(N):
+            V[i, j+1] = V[i, j] + h*A[i, j]
+            X[i, j+1] = X[i, j] + h*V[i, j] + 0.5*(h**2)*A[i, j]
+            A[i, j+1] = acceleration(T[j], X[:, j], V[:, j])[i]
+            T[j+1] = (j+1)*h
+    return T, X, V, A

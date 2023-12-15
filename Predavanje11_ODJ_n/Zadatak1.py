@@ -1,5 +1,4 @@
 import diferencijalne_jednadzbe as dj
-import numpy as np
 import matplotlib.pyplot as plt 
 
 X0 = [0.0, 0.9, 29.0] #pocetni uvjeti
