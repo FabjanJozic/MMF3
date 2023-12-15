@@ -1,7 +1,7 @@
 import diferencijalne_jednadzbe as dj
 import matplotlib.pyplot as plt 
 
-X0 = [0.0, 0.9, 29.0] #pocetni uvjeti
+X0 = [0.0, 0.0, 0.0] #pocetni uvjeti
 m = 4.7 #masa
 F = 5.2 #sila
 k = 400
