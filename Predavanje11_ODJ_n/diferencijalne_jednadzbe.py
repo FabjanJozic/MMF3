@@ -26,7 +26,7 @@ def Euler(t0, x0, v0, function, N, tN):
 def RK2(t0, x0, v0, function, N, tN):
     '''
     Prediktor-korektor metoda za numericko rjesavanje obicnih diferencijalnih
-    jednadzbi prvog reda.
+    jednadzbi prvog reda, Runge-Kutta 2 metoda.
     \nt0 --- pocetni trenutak
     \nx0 --- pocetni polozaj
     \nv0 --- pocetna brzina
