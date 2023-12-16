@@ -23,7 +23,7 @@ def Euler(t0, x0, v0, function, N, tN):
         A.append(function(T[-1], X[-1], V[-1]))
     return T, X, V, A
 
-def pred_kor(t0, x0, v0, function, N, tN):
+def RK2(t0, x0, v0, function, N, tN):
     '''
     Prediktor-korektor metoda za numericko rjesavanje obicnih diferencijalnih
     jednadzbi prvog reda.
