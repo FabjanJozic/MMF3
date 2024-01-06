@@ -11,10 +11,10 @@ def rho(x):
     else:
         return 0.0
 
-j = [0, 100, 200, 300, 400]
-t = [0.5*J for J in j]
-
 dx, dt = 0.2, 0.5
+
+j = [0, 100, 200, 300, 400]
+t = [dt*J for J in j]
 
 P1 = [0.0, 20.0, 0.0, t[0], dx, dt] #pocetni uvjeti
 P2 = [0.0, 20.0, 0.0, t[1], dx, dt]
