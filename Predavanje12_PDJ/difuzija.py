@@ -9,7 +9,7 @@ def D_exp(g_x, xt0_N, D):
     dx = xt0_N[4] #korak polozaja
     dt = xt0_N[5] #korak vremena
     N = int(xt0_N[1]/dx) #broj tocaka u prostoru
-    M = int(xt0_N[3]) #broj tocaka u vremenu
+    M = int(xt0_N[3]/dt) #broj tocaka u vremenu
     alpha = D*dt/(dx**2)
     '''Vrijednost funkcije difuzije dobiva se rekurzivno preko
     vrijednosti varijable polozaja.'''
