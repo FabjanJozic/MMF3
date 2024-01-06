@@ -4,7 +4,7 @@ def D_exp(g_x, xt0_N, D):
     '''Eksplicitna metoda rjesavanje difuzijske parcijalne
     diferencijalne jednadzbe.
     \ng_x ------ funkcija pocetnih uvjeta za x varijablu
-    \nxt0_N ---- vektor pocetnih uvjeta
+    \nxt0_N ---- vektor pocetnih uvjeta - [x0, xN, t0, tN, dx, dt]
     \nD -------- konstanta difuzije'''
     dx = xt0_N[4] #korak polozaja
     dt = xt0_N[5] #korak vremena
