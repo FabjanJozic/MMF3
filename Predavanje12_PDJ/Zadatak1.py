@@ -11,7 +11,7 @@ def rho(x):
     else:
         return 0.0
 
-dx, dt = 0.2, 0.5
+dx, dt = 0.2, 0.02
 
 j = [0, 100, 200, 300, 400]
 t = [dt*J for J in j]
