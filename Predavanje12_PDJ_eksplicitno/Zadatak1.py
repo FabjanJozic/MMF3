@@ -21,14 +21,15 @@ P2 = [0.0, 20.0, 0.0, t[1], dx, dt]
 P3 = [0.0, 20.0, 0.0, t[2], dx, dt]
 P4 = [0.0, 20.0, 0.0, t[3], dx, dt]
 P5 = [0.0, 20.0, 0.0, t[4], dx, dt]
+Rub = [0.0, 0.0] #rubni uvjeti
 
 Dif = 1e-2 #difuzijska konstanta
 
-D1 = di.D_exp(rho, P1, Dif) #vrijednosti funkcije difuzije
-D2 = di.D_exp(rho, P2, Dif)
-D3 = di.D_exp(rho, P3, Dif)
-D4 = di.D_exp(rho, P4, Dif)
-D5 = di.D_exp(rho, P5, Dif)
+D1 = di.dif(rho, P1, Rub, Dif) #vrijednosti funkcije difuzije
+D2 = di.dif(rho, P2, Rub, Dif)
+D3 = di.dif(rho, P3, Rub, Dif)
+D4 = di.dif(rho, P4, Rub, Dif)
+D5 = di.dif(rho, P5, Rub, Dif)
 
 X = [x/dx for x in np.arange(0.0, 20.0+dx, dx)]
 

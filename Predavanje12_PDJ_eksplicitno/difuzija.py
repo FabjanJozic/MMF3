@@ -1,15 +1,18 @@
 import numpy as np
 
-def D_exp(g_x, xt0_N, D):
+def dif(g_x, xt0_N, R, D):
     '''Eksplicitna metoda rjesavanje difuzijske parcijalne
     diferencijalne jednadzbe.
     \ng_x ------ funkcija pocetnih uvjeta za x varijablu
     \nxt0_N ---- vektor pocetnih uvjeta - [x0, xN, t0, tN, dx, dt]
+    \nR -------- vektor rubnih uvjeta - [x<, x>]
     \nD -------- konstanta difuzije'''
     dx = xt0_N[4] #korak polozaja
     dt = xt0_N[5] #korak vremena
-    N = int(xt0_N[1]/dx) #broj tocaka u prostoru
-    M = int(xt0_N[3]/dt) #broj tocaka u vremenu
+    N = int((xt0_N[1]-xt0_N[0])/dx) #broj tocaka u prostoru
+    M = int((xt0_N[3]-xt0_N[2])/dt) #broj tocaka u vremenu
+    xL = R[0] #lijevi rubni uvjet
+    xD = R[1] #desni rubni uvjet
     alpha = D*dt/(dx**2)
     '''Vrijednost funkcije difuzije dobiva se rekurzivno preko
     vrijednosti varijable polozaja.'''
@@ -20,6 +23,7 @@ def D_exp(g_x, xt0_N, D):
     for j in range(M+1): #vrijeme
         for i in range(1, N): #polozaj
             dif_r[i] = alpha*dif_p[i+1]+(1-2*alpha)*dif_p[i]+alpha*dif_p[i-1]
+        dif_r[0], dif_r[-1] = xL, xD
         dif_p = np.copy(dif_r)
     return dif_r
 
