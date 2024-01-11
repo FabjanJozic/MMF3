@@ -23,7 +23,7 @@ P4 = [0.0, 20.0, 0.0, t[3], dx, dt]
 P5 = [0.0, 20.0, 0.0, t[4], dx, dt]
 Rub = [0.0, 0.0] #rubni uvjeti
 Dif = 1e-2 #difuzijska konstanta
-metoda = 'imp'
+metoda = 'exp'
 
 D1 = di.dif(rho, P1, Rub, Dif, metoda) #vrijednosti funkcije difuzije
 D2 = di.dif(rho, P2, Rub, Dif, metoda)
