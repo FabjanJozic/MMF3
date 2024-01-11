@@ -34,8 +34,8 @@ def dif(g_x, xt0_N, R, D, met):
     dt = xt0_N[5] #korak vremena
     N = int((xt0_N[1]-xt0_N[0])/dx) #broj tocaka u prostoru
     M = int((xt0_N[3]-xt0_N[2])/dt) #broj tocaka u vremenu
-    xL = R[0] #lijevi rubni uvjet
-    xD = R[1] #desni rubni uvjet
+    dL = R[0] #lijevi rubni uvjet
+    dD = R[1] #desni rubni uvjet
     alpha = D*dt/(dx**2)
     dif_p = np.zeros(N+1)
     dif_r = np.zeros(N+1)
@@ -45,7 +45,7 @@ def dif(g_x, xt0_N, R, D, met):
         for j in range(M+1): #vrijeme
             for i in range(1, N): #polozaj
                 dif_r[i] = alpha*dif_p[i+1]+(1-2*alpha)*dif_p[i]+alpha*dif_p[i-1]
-            dif_r[0], dif_r[-1] = xL, xD
+            dif_r[0], dif_r[-1] = dL, dD
             dif_p = np.copy(dif_r)
     elif met == 'imp': #implicitna metoda
         down = [-alpha]*N
@@ -53,7 +53,7 @@ def dif(g_x, xt0_N, R, D, met):
         up = [-alpha]*N
         for j in range(M+1): #vrijeme
             dif_r = Thomas(down, mid, up, dif_p)
-            dif_r[0], dif_r[-1] = xL, xD
+            dif_r[0], dif_r[-1] = dL, dD
             dif_p = np.copy(dif_r)
     else:
         print('Invalid method input.')
