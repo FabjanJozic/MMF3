@@ -1,8 +1,8 @@
 
 def RK4(t0, x0, v0, function, N, tN):
     '''
-    Runge-Kutta 4 metoda za numericko rjesavanje obicnih diferencijalnih
-    jednadzbi prvog reda.
+    Runge-Kutta 4 metoda za numericko rjesavanje obicnih
+    diferencijalnih jednadzbi prvog reda.
     \nt0 -------- pocetni trenutak
     \nx0 -------- pocetni polozaj
     \nv0 -------- pocetna brzina
