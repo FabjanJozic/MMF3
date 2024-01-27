@@ -5,7 +5,7 @@ from matplotlib.animation import PillowWriter
 import skripta as s
 
 omega0 = 1.0 #svojstvena frekvencija
-beta = 1.5 #faktor nelinearnosti
+beta = 1.0 #faktor nelinearnosti
 delta = 0.1 #gusenje
 omega = 1.0 #vanjska frekvencija
 gama = 0.2 #vanjska amplituda
