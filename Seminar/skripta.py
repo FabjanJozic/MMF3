@@ -1,4 +1,3 @@
-import numpy as np
 
 def RK4(t0, x0, v0, function, N, tN):
     '''
