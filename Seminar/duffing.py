@@ -5,10 +5,10 @@ from matplotlib.animation import PillowWriter
 import skripta as s
 
 omega0 = 1.0 #svojstvena frekvencija
-beta = 2.0 #faktor nelinearnosti
+beta = 1.5 #faktor nelinearnosti
 delta = 0.1 #gusenje
-omega = 3.0 #vanjska frekvencija
-gama = 0.4 #vanjska amplituda
+omega = 1.0 #vanjska frekvencija
+gama = 0.2 #vanjska amplituda
 def accelerationP(t, x, v):
     return -(omega0**2)*x-delta*v-beta*(x**3)+gama*np.cos(omega*t) #za beta > 0
 
@@ -16,7 +16,7 @@ def accelerationN(t, x, v):
     return -(omega0**2)*x-delta*v+beta*(x**3)+gama*np.cos(omega*t) #za beta < 0
 
 T = 2*np.pi/omega0 #period harmonickog oscilatora
-t0, x0, v0 = 0.0, 0.5, 0.0 #pocetni uvjeti
+t0, x0, v0 = 0.0, 0.0, 0.0 #pocetni uvjeti
 tN = 14*T
 
 N = 1500
