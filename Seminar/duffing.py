@@ -5,7 +5,7 @@ from matplotlib.animation import PillowWriter
 import skripta as s
 
 omega = 1.0
-beta = 3.8
+beta = 0.8
 def accelerationP(t, x, v):
     return -(omega**2)*x-beta*(x**3) #za beta > 0
 
@@ -24,7 +24,7 @@ XN, VN = s.RK4(t0, x0, v0, accelerationN, N, tN)[1], s.RK4(t0, x0, v0, accelerat
 fig = plt.figure(figsize=(10,7), dpi=120)
 metadata = dict(title="Fazni dijagram Duffingovog oscilatora")
 writer = PillowWriter(fps=15, metadata=metadata) #type: ignore
-with writer.saving(fig, "Duffing_w1_b3_8_N300.gif", 120):
+with writer.saving(fig, "Duffing_w1_b0_8_N300.gif", 120):
     for i in range(len(XP)):
         plt.clf()              
         plt.plot(XP[:i], VP[:i], color='red', lw=1.3)
