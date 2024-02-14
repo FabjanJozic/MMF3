@@ -6,9 +6,9 @@ import skripta as s
 
 omega0 = 1.0 #svojstvena frekvencija
 beta = 1.0 #faktor nelinearnosti
-delta = 0.1 #gusenje
-omega = 1.0 #vanjska frekvencija
-gama = 0.2 #vanjska amplituda
+delta = 0.05 #gusenje
+omega = 2.05 #vanjska frekvencija
+gama = 0.25 #vanjska amplituda
 def accelerationP(t, x, v):
     return -(omega0**2)*x-delta*v-beta*(x**3)+gama*np.cos(omega*t) #za beta > 0
 
@@ -17,9 +17,9 @@ def accelerationN(t, x, v):
 
 T = 2*np.pi/omega0 #period harmonickog oscilatora
 t0, x0, v0 = 0.0, 0.0, 0.0 #pocetni uvjeti
-tN = 14*T
+tN = 20*T
 
-N = 1500
+N = 1700
 
 XP, VP = s.RK4(t0, x0, v0, accelerationP, N, tN)[1], s.RK4(t0, x0, v0, accelerationP, N, tN)[2]
 XN, VN = s.RK4(t0, x0, v0, accelerationN, N, tN)[1], s.RK4(t0, x0, v0, accelerationN, N, tN)[2]
@@ -27,7 +27,7 @@ XN, VN = s.RK4(t0, x0, v0, accelerationN, N, tN)[1], s.RK4(t0, x0, v0, accelerat
 fig = plt.figure(figsize=(10,7), dpi=120)
 metadata = dict(title="Fazni dijagram Duffingovog oscilatora")
 writer = PillowWriter(fps=15, metadata=metadata) #type: ignore
-with writer.saving(fig, "Duffing_pobudeno.gif", 120):
+with writer.saving(fig, "Duffing_pobudeno2.gif", 120):
     for i in range(len(XP)):
         plt.clf()              
         plt.plot(XP[:i], VP[:i], color='red', lw=1.3)
